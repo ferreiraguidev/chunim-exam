@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:messages autoUpdate="true"/>
+        <p:scrollPanel>
+            <h:panelGrid columns="1" layout="grid">
+
+                <h:outputLabel value="Name"/>
+                <p:inputText value="#{loginBean.username}" required="true" requiredMessage="Name please"/>
+
+                <h:outputText value="Password"/>
+                <p:password value="#{loginBean.password}" required="true" requiredMessage="password"/>
+
+                <p:commandButton value="Login" update="@form"
+                                 action="#{loginBean.log}"/>
+                <p:confirmDialog global="true" showEffect="fade" hideEffect="fade">
+                    <p:commandButton value="Sim" type="button" styleClass="ui-confirmdialog-yes"
+                                     icon="pi pi-check"/>
+                    <p:commandButton value="Não" type="button" styleClass="ui-confirmdialog-no"
+                                     icon="pi pi-times"/>
+                </p:confirmDialog>
+            </h:panelGrid>
+        </p:scrollPanel>
+
+        <hr>
+            <div class="row-fluid">
+                <div class="span12">
+                    <div class="span8">
+                        <h:form>
+                            <h:outputLink
+                                    value="https://devdojo.academy/index.html ">Featured by DevDojo Academy</h:outputLink>
+                        </h:form>
+                    </div>
+                </div>
+            </div>
+        </hr>
+
+    </h:form>
+</h:body>
+</html>

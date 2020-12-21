@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+<h:body>
+    <div id="header">
+        <ui:insert>
+            <ui:include src="chunimheader.xhtml"></ui:include>
+        </ui:insert>
+
+
+    </div>
+    <div id="content">
+        <ui:insert>
+            <ui:include src="restricted/chunimtest.xhtml"></ui:include>
+        </ui:insert>
+
+
+    </div>
+    <div id="footer">
+        ui:insert>
+        <ui:include src="footer.xhtml"></ui:include>
+    </div>
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+</h:body>
+</html>

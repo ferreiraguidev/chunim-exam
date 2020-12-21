@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="chunim-exam:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>chunim-exam</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="whatever-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="chunim-exam:war exploded" />
+    </root>
+  </artifact>
+</component>

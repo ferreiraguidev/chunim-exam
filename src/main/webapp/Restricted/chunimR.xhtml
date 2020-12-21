@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+    <style type="text/css">
+
+        .ui-panelgrid td, .ui-panelgrid tr {
+            border-style: none !important
+        }
+
+    </style>
+
+    <h:form enctype="multipart/form-data">
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:scrollPanel>
+            <p:panelGrid columns="4">
+
+                <p:commandButton value="Atualizar alterações" update="@form"
+                                 actionListener="#{carBean.list}"/>
+
+                <p:commandButton value="Logout" update="@form"
+                                 action="#{loginBean.logout()}"/>
+
+            </p:panelGrid>
+        </p:scrollPanel>
+
+        <br/>
+        <p:fieldset legend="ADCIONAR NOVO CARRO AO ESTOQUE ">
+
+            <p:panelGrid columns="6" collour="grey">
+
+                <h:outputText value="Marca" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.brand}"/>
+
+                <h:outputText value="Tipo" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.type}"/>
+
+                <h:outputText value="Ano" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.year}"/>
+
+                <h:outputText value="Nome" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.name}"/>
+
+                <h:outputText value="Modelo" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.model}"/>
+
+                <h:outputText value="Valor" style="font-weight: bold"/>
+                <p:inputText value="#{carBean.carro.price}"/>
+            </p:panelGrid>
+
+            <p:fieldset legend="Descrição"
+                        style="font-size:12px; width: 250px">
+                <p:inputText id="description" style="width: 850px"
+                             value="#{carBean.car.description}"/>
+            </p:fieldset>
+
+            <br/>
+
+            <p:toolbar>
+                <f:facet name="left">
+                    <p:fileUpload value="#{carBean.uploadedFiles}" skinSimple="true" mode="simple" multiple="true"/>
+
+                    <span class="ui-separator">
+                <span class="ui-icon pi pi-ellipsis-v"/>
+            </span>
+
+                    <p:commandButton value="Save Images" actionListener="#{carBean.upload}" ajax="false"/>
+
+                    <span class="ui-separator">
+                <span class="ui-icon pi pi-ellipsis-v"/>
+            </span>
+
+                    <p:commandButton value="Salvar" actionListener="#{carBean.add()}" icon="pi pi-check"/>
+                </f:facet>
+            </p:toolbar>
+
+        </p:fieldset>
+        <br/>
+
+        <p:dataGrid var="car" value="#{carBean.cars}" columns="3" layout="grid"
+                    rows="12" paginator="true" id="cars"
+                    paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                    rowsPerPageTemplate="6,12,16">
+
+            <f:facet name="header">
+                Pátio
+            </f:facet>
+
+            <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
+
+                <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="350" panelWidth="350">
+                    <p:graphicImage width="350" height="300" library="default"
+                                    name="carsFolders/#{car.imagespath}/#{image}"/>
+                </p:galleria>
+
+                <p:panelGrid value="#{carBean.car}" columns="4">
+                    <h:outputText value="#{car.name}" style="font-weight: bold"/>
+                    <h:outputText value="#{car.type}" style="font-weight: bold"/>
+                    <h:outputText value="#{car.brand}" style="font-weight: bold"/>
+                    <h:outputText value="#{car.model}" style="font-weight: bold"/>
+                    <h:outputText value="#{car.year}" style="font-weight: bold"/>
+                    <h:outputText value="#{car.price}" style="font-weight: bold"/>
+                </p:panelGrid>
+
+
+                <p:panelGrid columns="1">
+                    <h:outputText value="#{car.description}" style="font-weight: bold"/>
+                </p:panelGrid>
+
+                <p:panelGrid columns="2">
+                    <p:commandButton value="editar" update="@form"
+                                     actionListener="#{carBean.DAOedit(car)}"/>
+
+                    <p:commandButton value="Excluir" update="@form" icon="pi pi-trash"
+                                     actionListener="#{carBean.delete(car)}"/>
+                </p:panelGrid>
+
+            </p:panel>
+
+        </p:dataGrid>
+    </h:form>
+</h:body>
+
+</html>
