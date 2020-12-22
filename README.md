@@ -1,7 +1,5 @@
 # chunim-exam
 
-
-About:
 `Purposed by Dev Dojo Acamdemy this project has the objective of simulating a real business model web application with concrete objectives and well defined prerequisites.
  `
  
