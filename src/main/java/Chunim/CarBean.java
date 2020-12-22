@@ -2,7 +2,6 @@ package Chunim;
 
 import org.primefaces.model.file.UploadedFiles;
 
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
@@ -26,10 +25,6 @@ public class CarBean implements Serializable {
     private CarDAO carDAO = new CarDAO();
 
     private Car selectedCar;
-
-    ///////
-
-    private List<String> imagesFolder;
 
     private final ExternalContext externalContext;
 
@@ -61,7 +56,7 @@ public class CarBean implements Serializable {
 
     public void upload() {
 
-        car.setImagespath(generateFolderName()); // static importation
+        car.setImagespath(generateFolderName());
 
         if (uploadedFiles != null) {
 
@@ -72,22 +67,8 @@ public class CarBean implements Serializable {
         }
     }
 
-    public List<String> getImagesFolder() {
-        return imagesFolder;
-    }
-
-    public void setImagesFolder(List<String> imagesFolder) {
-        this.imagesFolder = imagesFolder;
-    }
-
     public void list() {
         cars = carDAO.search();
-        car.getImagespath();
-
-    }
-    public void listSelected(){
-
-        cars = carDAO.searchByBrand(getCar().getBrand());
         car.getImagespath();
 
     }
@@ -100,13 +81,6 @@ public class CarBean implements Serializable {
     public void delete(Car car) {
         CarDAO.delete(car);
         car.deleteCarFolder(car, externalContext);
-    }
-
-    public void searchByBrand() {
-
-        cars = carDAO.searchByBrand(car.getBrand());
-        car.getBrand();
-
     }
 
     public Car getSelectedCar() {

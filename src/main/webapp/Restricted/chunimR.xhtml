@@ -99,35 +99,33 @@
 
             <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="350" panelWidth="350">
-                    <p:graphicImage width="350" height="300" library="default"
+                <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                    <p:graphicImage width="400" height="300" library="default"
                                     name="carsFolders/#{car.imagespath}/#{image}"/>
                 </p:galleria>
 
-                <p:panelGrid value="#{carBean.car}" columns="4">
-                    <h:outputText value="#{car.name}" style="font-weight: bold"/>
-                    <h:outputText value="#{car.type}" style="font-weight: bold"/>
-                    <h:outputText value="#{car.brand}" style="font-weight: bold"/>
-                    <h:outputText value="#{car.model}" style="font-weight: bold"/>
-                    <h:outputText value="#{car.year}" style="font-weight: bold"/>
-                    <h:outputText value="#{car.price}" style="font-weight: bold"/>
+                <p:panelGrid value="#{carBean.car}" columns="3">
+                    <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                    <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                    <h:outputText value=" Marca : #{car.brand}" style="font-weight: bold"/>
+                    <h:outputText value=" Modelo : #{car.model}" style="font-weight: bold"/>
+                    <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                    <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
                 </p:panelGrid>
-
 
                 <p:panelGrid columns="1">
                     <h:outputText value="#{car.description}" style="font-weight: bold"/>
                 </p:panelGrid>
 
                 <p:panelGrid columns="2">
-                    <p:commandButton value="editar" update="@form"
+
+                    <p:commandButton value="Editar" update="@form" icon="pi pi-refresh"
                                      actionListener="#{carBean.DAOedit(car)}"/>
 
                     <p:commandButton value="Excluir" update="@form" icon="pi pi-trash"
                                      actionListener="#{carBean.delete(car)}"/>
                 </p:panelGrid>
-
             </p:panel>
-
         </p:dataGrid>
     </h:form>
 </h:body>

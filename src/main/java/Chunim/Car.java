@@ -32,19 +32,19 @@ public class Car implements Serializable {
 
     private String pastaImagens;
 
-    private List<String> imagesFolder = new ArrayList<>(); // ImagesFolder Renamed to
+    private List<String> imagesFolder = new ArrayList<>();
 
 
     public Car() {
     }
 
-    public static String generateFolderName() { // command button to save images and create a folder name
+    public static String generateFolderName() {
 
         return UUID.randomUUID().toString();
     }
 
 
-    public String getImagesPathName() {//getting the paths name
+    public String getImagesPathName() {
 
         checkFolderContent(imagespath);
 
@@ -59,7 +59,7 @@ public class Car implements Serializable {
         }
     }
 
-    public void uploadImagesToFolders(UploadedFiles ups, File file) { //uploading the images.
+    public void uploadImagesToFolders(UploadedFiles ups, File file) {
 
         boolean aux = file.mkdirs();
 
@@ -134,7 +134,6 @@ public class Car implements Serializable {
 
         if (!dir) {
             List<String> filesNameList = new ArrayList<>();
-//            List<File> fileList = asList(fl.listFiles());
             File[] fileList = fl.listFiles();
 
             for (File f : fileList) {

@@ -51,9 +51,10 @@
             </p:carousel>
 
             <f:facet name="footer">
-                Confira abaixo nosso Estoque :
+
             </f:facet>
         </p:carousel>
+        <br/>
         <br/>
     </h:form>
 </h:head>
@@ -73,7 +74,7 @@
         <h:form id="form">
 
 
-            <p:tabView orientation="left">
+            <p:tabView orientation="center">
 
                 <p:tab title="Estoque">
                     <p:dataGrid var="car" value="#{carBean.cars}" columns="3" layout="grid"
@@ -89,17 +90,18 @@
 
                         <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="250" panelWidth="250">
-                                <p:graphicImage width="250" height="250" library="default"
+                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                                <p:graphicImage width="400" height="300" library="default"
                                                 name="carsFolders/#{car.imagespath}/#{image}"/>
                             </p:galleria>
 
-                            <p:panelGrid columns="2" value="#{carBean.car}">
+                            <p:panelGrid columns="3" value="#{carBean.car}">
 
-                                <h:outputText value=" Nome #{car.name}" style="font-weight: bold"/>
-                                <h:outputText value="#{car.model}" style="font-weight: bold"/>
-                                <h:outputText value="#{car.year}" style="font-weight: bold"/>
-                                <h:outputText value="#{car.price}" style="font-weight: bold"/>
+                                <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                                <h:outputText value=" Modelo :#{car.model}" style="font-weight: bold"/>
+                                <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                                <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                                <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
 
                             </p:panelGrid>
 
@@ -119,20 +121,25 @@
                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16" style="border: none">
 
+                        <f:facet name="header">
+                            Carros
+                        </f:facet>
+
                         <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="250" panelWidth="250">
-                                <p:graphicImage width="250" height="250" library="default"
+                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                                <p:graphicImage width="400" height="300" library="default"
                                                 name="carsFolders/#{car.imagespath}/#{image}"/>
                             </p:galleria>
 
-                            <p:panelGrid columns="2" value="#{carBean.car}" style="border: none">
+                            <p:panelGrid columns="3" value="#{carBean.car}" style="border: none">
 
+                                <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                                <h:outputText value=" Modelo :#{car.model}" style="font-weight: bold"/>
+                                <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                                <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                                <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
 
-                                <h:outputText value="#{car.name}"/>
-                                <h:outputText value="#{car.model}"/>
-                                <h:outputText value="#{car.year}"/>
-                                <h:outputText value="#{car.price}"/>
                             </p:panelGrid>
 
                             <p:panelGrid columns="1">
@@ -150,24 +157,32 @@
                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16" style="border: none">
 
+                        <f:facet name="header">
+                            Barcos Lanchas e JetSki
+                        </f:facet>
+
                         <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="250" panelWidth="250">
-                                <p:graphicImage width="250" height="250" library="default"
+                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                                <p:graphicImage width="400" height="300" library="default"
                                                 name="carsFolders/#{car.imagespath}/#{image}"/>
                             </p:galleria>
 
-                            <p:panelGrid columns="2" value="#{carBean.car}" style="border: none">
+                            <p:panelGrid columns="3" value="#{carBean.car}" style="border: none">
 
-                                <h:outputText value="#{car.name}"/>
-                                <h:outputText value="#{car.model}"/>
-                                <h:outputText value="#{car.year}"/>
-                                <h:outputText value="#{car.price}"/>
+                                <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                                <h:outputText value=" Modelo :#{car.model}" style="font-weight: bold"/>
+                                <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                                <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                                <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
+
                             </p:panelGrid>
 
                             <p:panelGrid columns="1">
                                 <h:outputText value="#{car.description}" style="font-weight: bold"/>
                             </p:panelGrid>
+
+
                         </p:panel>
                     </p:dataGrid>
                 </p:tab>
@@ -179,25 +194,31 @@
                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16" style="border: none">
 
+                        <f:facet name="header">
+                            Pickups | 4x4
+                        </f:facet>
+
                         <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="250" panelWidth="250">
-                                <p:graphicImage width="250" height="250" library="default"
+                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                                <p:graphicImage width="400" height="300" library="default"
                                                 name="carsFolders/#{car.imagespath}/#{image}"/>
                             </p:galleria>
 
-                            <p:panelGrid columns="2" value="#{carBean.car}" style="border: none">
+                            <p:panelGrid columns="3" value="#{carBean.car}" style="border: none">
 
+                                <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                                <h:outputText value=" Modelo :#{car.model}" style="font-weight: bold"/>
+                                <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                                <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                                <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
 
-                                <h:outputText value="#{car.name}"/>
-                                <h:outputText value="#{car.model}"/>
-                                <h:outputText value="#{car.year}"/>
-                                <h:outputText value="#{car.price}"/>
                             </p:panelGrid>
 
                             <p:panelGrid columns="1">
                                 <h:outputText value="#{car.description}" style="font-weight: bold"/>
                             </p:panelGrid>
+
                         </p:panel>
                     </p:dataGrid>
                 </p:tab>
@@ -209,26 +230,30 @@
                                 {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                                 rowsPerPageTemplate="6,12,16" style="border: none">
 
+                        <f:facet name="header">
+                            Vans
+                        </f:facet>
+
                         <p:panel header="#{car.name}" value="#{car.listImagesName()}" var="image">
 
-                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="250" panelWidth="250">
-                                <p:graphicImage width="250" height="250" library="default"
+                            <p:galleria value="#{car.listImagesName()}" var="image" panelHeight="300" panelWidth="400">
+                                <p:graphicImage width="400" height="300" library="default"
                                                 name="carsFolders/#{car.imagespath}/#{image}"/>
                             </p:galleria>
 
-                            <p:panelGrid columns="2" value="#{carBean.car}" style="border: none">
+                            <p:panelGrid columns="3" value="#{carBean.car}" style="border: none">
 
+                                <h:outputText value=" Nome : #{car.name}" style="font-weight: bold"/>
+                                <h:outputText value=" Modelo :#{car.model}" style="font-weight: bold"/>
+                                <h:outputText value=" Tipo : #{car.type}" style="font-weight: bold"/>
+                                <h:outputText value=" Ano : #{car.year}" style="font-weight: bold"/>
+                                <h:outputText value=" Valor :#{car.price}" style="font-weight: bold"/>
 
-                                <h:outputText value="#{car.name}"/>
-                                <h:outputText value="#{car.model}"/>
-                                <h:outputText value="#{car.year}"/>
-                                <h:outputText value="#{car.price}"/>
                             </p:panelGrid>
 
                             <p:panelGrid columns="1">
                                 <h:outputText value="#{car.description}" style="font-weight: bold"/>
                             </p:panelGrid>
-
                         </p:panel>
                     </p:dataGrid>
                 </p:tab>

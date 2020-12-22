@@ -44,7 +44,7 @@ public class CarDAO {
         }
     }
 
-    public static void edit(Car carro) { // try with resources * update it !
+    public static void edit(Car carro) {
 
         String sql = "UPDATE `chunim`.`car`" +
                 "SET `name` = ?, " +
@@ -129,9 +129,9 @@ public class CarDAO {
         }
     }
 
-    public static List<Car> searchByBrand(String brand) {
+    public static List<Car> searchByName(String brand) {
 
-        String sql = "SELECT FROM car WHERE brand LIKE ?";
+        String sql = "SELECT FROM car WHERE name LIKE ?";
         List<Car> cars = new ArrayList<>();
 
         try (Connection connection = ConnectionFactory.getConexao();
