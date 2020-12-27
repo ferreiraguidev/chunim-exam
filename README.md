@@ -1,28 +1,25 @@
 # chunim-exam
 
-`Purposed by Dev Dojo Acamdemy this project has the objective of simulating a real business model web application with concrete objectives and well defined prerequisites.
+:blue_book: `Proposed by Dev Dojo Academy this project has the objective of simulating a real business model web application with concrete objectives and well defined prerequisites.
  `
+
  
-What's in the project ?
-
-`There's a Home page where a suppost customer can vizualise a range of vehicules, followed by a restricted area where the sales platform owner can manage the page posting new vehicles, editing or deleting them.`
-
-Used Technologies:
-
-`Java 11`
-`WildFly`
-`Maven`
-`Work Bench`
-
 *******
 
-`Restricted area Login : ` 
+:closed_lock_with_key: `Restricted area Login : ` 
 
  | UserName      |  Password     |
  | ------------- |:-------------:| 
  | databaseroot  | servlet2020   |
  
- 
+ *******
+  
+Used Technologies:
+
+`Java 11`
+`WildFly 21.0.0 `
+`Maven 3.3`
+`Work Bench`
          
           
 
