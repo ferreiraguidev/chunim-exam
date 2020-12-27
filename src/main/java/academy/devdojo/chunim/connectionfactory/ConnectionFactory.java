@@ -1,4 +1,4 @@
-package Chunim;
+package academy.devdojo.chunim.connectionfactory;
 
 import java.sql.*;
 import java.util.logging.Level;

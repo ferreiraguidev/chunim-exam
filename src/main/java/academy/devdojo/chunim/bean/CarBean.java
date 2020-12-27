@@ -1,34 +1,40 @@
-package Chunim;
+package academy.devdojo.chunim.bean;
 
+import academy.devdojo.chunim.DAO.CarDAO;
+import academy.devdojo.chunim.model.Car;
 import org.primefaces.model.file.UploadedFiles;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.SessionScoped;
 import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.servlet.http.HttpServletRequest;
 import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Chunim.Car.generateFolderName;
-import static Chunim.CarDAO.edit;
-import static Chunim.CarDAO.save;
+import static academy.devdojo.chunim.DAO.CarDAO.edit;
+import static academy.devdojo.chunim.DAO.CarDAO.save;
+import static academy.devdojo.chunim.model.Car.generateFolderName;
+
 
 @Named
-@SessionScoped
+@ViewScoped
 public class CarBean implements Serializable {
 
     private Car car = new Car();
     private List<Car> cars = new ArrayList<>();
     private CarDAO carDAO = new CarDAO();
-
     private Car selectedCar;
 
-    private final ExternalContext externalContext;
 
+    private final ExternalContext externalContext;
     private UploadedFiles uploadedFiles;
+
 
     @PostConstruct
     public void init() {
@@ -46,7 +52,10 @@ public class CarBean implements Serializable {
         if (car.getId() == null) {
             save(car);
 
+            car = new Car();
+
             System.out.println("saved data");
+
         } else {
             edit(car);
             System.out.println("Successfully updated in dbms");
@@ -61,15 +70,20 @@ public class CarBean implements Serializable {
         if (uploadedFiles != null) {
 
             File filedoc = new File(car.getImagesPathName());
-
             car.uploadImagesToFolders(uploadedFiles, filedoc);
 
         }
+
+        add();
     }
 
-    public void list() {
+    public List<Car> list() {
         cars = carDAO.search();
         car.getImagespath();
+
+        car = new Car();
+
+        return carDAO.search();
 
     }
 
@@ -79,9 +93,18 @@ public class CarBean implements Serializable {
     }
 
     public void delete(Car car) {
+
         CarDAO.delete(car);
         car.deleteCarFolder(car, externalContext);
+
     }
+
+    public void reload() throws IOException {
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
+    }
+
+
 
     public Car getSelectedCar() {
         return selectedCar;
@@ -94,6 +117,7 @@ public class CarBean implements Serializable {
     public Car getCar() {
         return car;
     }
+
 
     public void setCar(Car car) {
         this.car = car;

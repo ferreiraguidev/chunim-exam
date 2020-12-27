@@ -1,4 +1,6 @@
-package Chunim;
+package academy.devdojo.chunim.filter;
+
+import academy.devdojo.chunim.bean.LoginBean;
 
 import javax.inject.Inject;
 import javax.servlet.*;
@@ -11,11 +13,6 @@ public class LoginFilter implements Filter {
 
     @Inject
     private LoginBean loginBean;
-
-    @Override
-    public void init(FilterConfig filterConfig) throws ServletException {
-
-    }
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
@@ -31,12 +28,6 @@ public class LoginFilter implements Filter {
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
         }
-    }
-
-    @Override
-    public void destroy() {
-
-
     }
 }
 

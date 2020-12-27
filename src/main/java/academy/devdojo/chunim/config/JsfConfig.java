@@ -1,4 +1,4 @@
-package Chunim;
+package academy.devdojo.chunim.config;
 
 import javax.faces.annotation.FacesConfig;
 

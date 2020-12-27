@@ -1,6 +1,6 @@
-package Chunim;
+package academy.devdojo.chunim.bean;
 
-import Chunim.Admin;
+import academy.devdojo.chunim.model.Admin;
 
 import javax.enterprise.context.SessionScoped;
 import javax.faces.application.FacesMessage;
@@ -19,7 +19,7 @@ public class LoginBean implements Serializable {
     public String log() { // look in db
 
         if (username.equals("databaseroot") && password.equals("servlet2020")) {
-            return "/Restricted/chunimR.xhtml?faces-redirect=true";
+            return "/Restricted/chunimAdmin.xhtml?faces-redirect=true";
 
         }
         FacesContext context = FacesContext.getCurrentInstance();
@@ -35,7 +35,7 @@ public class LoginBean implements Serializable {
     public String logout() {
         FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
         admin = null;
-        return "/testHome.xhtml?faces-redirect=true";
+        return "/chunimHome.xhtml?faces-redirect=true";
     }
 
     public String getUsername() {

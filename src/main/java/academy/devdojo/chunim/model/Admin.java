@@ -1,4 +1,4 @@
-package Chunim;
+package academy.devdojo.chunim.model;
 
 public class Admin {
 

@@ -4,9 +4,11 @@
     <option name="state">
       <map>
         <entry key="file://$PROJECT_DIR$/src/main/webapp/Restricted/chunimR.xhtml" value="file://$PROJECT_DIR$/src/main/webapp/Restricted" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/chunimHome.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/page.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/test.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/testHome.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/testttt.xhtml" value="file://$PROJECT_DIR$/src/main/webapp" />
       </map>
     </option>
   </component>

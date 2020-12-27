@@ -1,4 +1,7 @@
-package Chunim;
+package academy.devdojo.chunim.DAO;
+
+import academy.devdojo.chunim.connectionfactory.ConnectionFactory;
+import academy.devdojo.chunim.model.Car;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -128,36 +131,5 @@ public class CarDAO {
             return null;
         }
     }
-
-    public static List<Car> searchByName(String brand) {
-
-        String sql = "SELECT FROM car WHERE name LIKE ?";
-        List<Car> cars = new ArrayList<>();
-
-        try (Connection connection = ConnectionFactory.getConexao();
-            PreparedStatement ps = connection.prepareStatement(sql)) {
-
-            ps.setString(1, "%" + brand + "%");
-
-            ResultSet resultSet = ps.executeQuery();
-
-            while (resultSet.next()) {
-
-                cars.add(new Car(resultSet.getString("name"), resultSet.getString("type"),
-                        resultSet.getString("brand"), resultSet.getString("model"),
-                        resultSet.getString("year"), resultSet.getString("price"),
-                        resultSet.getInt("id"), resultSet.getString("description"),
-                        resultSet.getString("imagespath"), resultSet.getString("pastaImagens"),
-                        Collections.singletonList(resultSet.getString("imagesFolder"))));
-            }
-            ConnectionFactory.close(connection, ps);
-            return cars;
-
-
-        }catch (SQLException e){
-            e.printStackTrace();
-        }
-
-        return null;
-    }
 }
+

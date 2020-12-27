@@ -1,7 +1,9 @@
-package Chunim;
+package academy.devdojo.chunim.model;
+
 
 import org.primefaces.model.file.UploadedFile;
 import org.primefaces.model.file.UploadedFiles;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -17,6 +19,7 @@ import java.util.UUID;
 
 import static java.util.Arrays.asList;
 
+
 public class Car implements Serializable {
 
     private String name;
@@ -28,21 +31,30 @@ public class Car implements Serializable {
     private Integer id;
     private String description;
 
-    private String imagespath;
+    public String imagespath;
 
-    private String pastaImagens;
-
-    private List<String> imagesFolder = new ArrayList<>();
+    public List<String> imagesFolder = new ArrayList<>();
 
 
     public Car() {
     }
-
-    public static String generateFolderName() {
-
-        return UUID.randomUUID().toString();
+    public Car(String name, String type, String brand, String model, String year, String price, Integer id, String description, String imagespath, List<String> imagesFolder) {
+        this.name = name;
+        this.type = type;
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+        this.id = id;
+        this.description = description;
+        this.imagespath = imagespath;
+        this.imagesFolder = imagesFolder;
     }
 
+    public static String generateFolderName() {
+        return UUID.randomUUID().toString();
+
+    }
 
     public String getImagesPathName() {
 
@@ -71,14 +83,14 @@ public class Car implements Serializable {
 
             } else {
                 FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR,
-                        "Doesent have any content", "");
+                        "Não possui conteúdo", "");
                 FacesContext.getCurrentInstance().addMessage(null, facesMessage);
                 return;
             }
         }
 
         FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_INFO,
-                "Successfully Saved", "");
+                "Salvo com Sucesso", "");
         FacesContext.getCurrentInstance().addMessage(null, facesMessage);
     }
 
@@ -126,7 +138,6 @@ public class Car implements Serializable {
         }
     }
 
-
     public List<String> listImagesName() {
 
         File fl = new File(getImagesPathName());
@@ -146,21 +157,22 @@ public class Car implements Serializable {
         } else {
             return new ArrayList<>();
         }
-
     }
 
-    public Car(String name, String type, String brand, String model, String year, String price, Integer id, String description, String imagespath, String pastaImagens, List<String> imagesFolder) {
-        this.name = name;
-        this.type = type;
-        this.brand = brand;
-        this.model = model;
-        this.year = year;
-        this.price = price;
-        this.id = id;
-        this.description = description;
-        this.imagespath = imagespath;
-        this.pastaImagens = pastaImagens;
-        this.imagesFolder = imagesFolder;
+    @Override
+    public String toString() {
+        return "Car{" +
+                "name='" + name + '\'' +
+                ", type='" + type + '\'' +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", year='" + year + '\'' +
+                ", price='" + price + '\'' +
+                ", id=" + id +
+                ", description='" + description + '\'' +
+                ", imagespath='" + imagespath + '\'' +
+                ", imagesFolder=" + imagesFolder +
+                '}';
     }
 
     @Override
@@ -177,21 +189,12 @@ public class Car implements Serializable {
                 Objects.equals(id, car.id) &&
                 Objects.equals(description, car.description) &&
                 Objects.equals(imagespath, car.imagespath) &&
-                Objects.equals(pastaImagens, car.pastaImagens) &&
                 Objects.equals(imagesFolder, car.imagesFolder);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, type, brand, model, year, price, id, description, imagespath, pastaImagens, imagesFolder);
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
+        return Objects.hash(name, type, brand, model, year, price, id, description, imagespath, imagesFolder);
     }
 
     public String getName() {
@@ -250,6 +253,14 @@ public class Car implements Serializable {
         this.id = id;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getImagespath() {
         return imagespath;
     }
@@ -258,11 +269,15 @@ public class Car implements Serializable {
         this.imagespath = imagespath;
     }
 
-    public String getPastaImagens() {
-        return pastaImagens;
+    public List<String> getImagesFolder() {
+        return imagesFolder;
     }
 
-    public void setPastaImagens(String pastaImagens) {
-        this.pastaImagens = pastaImagens;
+    public void setImagesFolder(List<String> imagesFolder) {
+        this.imagesFolder = imagesFolder;
     }
 }
+
+
+
+
