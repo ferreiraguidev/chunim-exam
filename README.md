@@ -10,7 +10,16 @@
 :clipboard: ` A suppost Garage owner contacted you and asked if you could develop a  Sales Platform where he could register his vehicules and make them avaiable to public.
 He also would like to LogIn in a restricted area where he could register, edit or delete vehicules from the stock `
  
-*******
+ 
+
+:closed_lock_with_key: `Restricted area Login : ` 
+
+ | UserName      |  Password     |
+ | ------------- |:-------------:| 
+ | databaseroot  | servlet2020   |
+ 
+
+**************
 ### Used Technologies 
 `JEE 8.0.1  `
 `JSF 2.2.20 `
@@ -23,14 +32,3 @@ He also would like to LogIn in a restricted area where he could register, edit o
 `PrimeFaces 8.0`
 
 ` Consult pom.xml in case of doubt  `
-
-
-*******
-
-:closed_lock_with_key: `Restricted area Login : ` 
-
- | UserName      |  Password     |
- | ------------- |:-------------:| 
- | databaseroot  | servlet2020   |
- 
-
