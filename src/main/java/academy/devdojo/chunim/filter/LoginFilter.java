@@ -23,7 +23,7 @@ public class LoginFilter implements Filter {
         System.out.println(url);
 
         if (url.contains("/restricted") && loginBean.getAdmin() != null) {
-            rs.sendRedirect(rq.getServletContext().getContextPath() + "/ChunimHome.xhtml");
+            rs.sendRedirect(rq.getServletContext().getContextPath() + "/chunimHome.xhtml");
 
         } else {
             filterChain.doFilter(servletRequest, servletResponse);
