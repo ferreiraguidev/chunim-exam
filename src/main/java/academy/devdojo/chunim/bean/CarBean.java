@@ -1,6 +1,7 @@
 package academy.devdojo.chunim.bean;
 
 import academy.devdojo.chunim.DAO.CarDAO;
+
 import academy.devdojo.chunim.model.Car;
 import org.primefaces.model.file.UploadedFiles;
 
@@ -30,7 +31,6 @@ public class CarBean implements Serializable {
     private List<Car> cars = new ArrayList<>();
     private CarDAO carDAO = new CarDAO();
     private Car selectedCar;
-
 
     private final ExternalContext externalContext;
     private UploadedFiles uploadedFiles;
@@ -78,6 +78,7 @@ public class CarBean implements Serializable {
     }
 
     public List<Car> list() {
+
         cars = carDAO.search();
         car.getImagespath();
 
@@ -103,7 +104,6 @@ public class CarBean implements Serializable {
         ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
         ec.redirect(((HttpServletRequest) ec.getRequest()).getRequestURI());
     }
-
 
 
     public Car getSelectedCar() {

@@ -1,9 +1,7 @@
 package academy.devdojo.chunim.model;
 
-
 import org.primefaces.model.file.UploadedFile;
 import org.primefaces.model.file.UploadedFiles;
-
 import javax.faces.application.FacesMessage;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
@@ -16,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
-
 import static java.util.Arrays.asList;
+
 
 
 public class Car implements Serializable {
@@ -35,9 +33,9 @@ public class Car implements Serializable {
 
     public List<String> imagesFolder = new ArrayList<>();
 
-
     public Car() {
     }
+
     public Car(String name, String type, String brand, String model, String year, String price, Integer id, String description, String imagespath, List<String> imagesFolder) {
         this.name = name;
         this.type = type;

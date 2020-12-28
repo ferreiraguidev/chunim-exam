@@ -1,6 +1,7 @@
-package academy.devdojo.chunim.model;
+package academy.devdojo.chunim.bean;
 
 import academy.devdojo.chunim.DAO.CarDAO;
+import academy.devdojo.chunim.model.Car;
 
 import javax.annotation.PostConstruct;
 import javax.faces.view.ViewScoped;
