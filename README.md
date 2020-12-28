@@ -1,10 +1,11 @@
-# About
+# ABOUT
 
 :blue_book: `Proposed by Dev Dojo Academy this project has the objective of simulating a real business model web application with concrete objectives and well defined prerequisites.
  `
+
+*******
  
-  
-The Exam  | Requisites :
+### The Exam  | Requisites :
   
 :clipboard: ` A suppost Garage owner contacted you and asked if you could develop a  Sales Platform where he could register his vehicules and make them avaiable to public.
 He also would like to LogIn in a restricted area where he could register, edit or delete vehicules from the stock `
